@@ -240,6 +240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  componentDidMount: function componentDidMount() {
+	    this._slickSlider.classList.add('slick-initialized');
 	    // Hack for autoplay -- Inspect Later
 	    this.initialize(this.props);
 	    this.adaptHeight();
@@ -277,7 +278,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.update(this.props);
 	  },
 	  render: function render() {
-	    var className = (0, _classnames2.default)('slick-initialized', 'slick-slider', this.props.className);
+	    var _this = this;
+
+	    var className = (0, _classnames2.default)('slick-slider', this.props.className);
 
 	    var trackProps = {
 	      fade: this.props.fade,
@@ -331,7 +334,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    return _react2.default.createElement(
 	      'div',
-	      { className: className, onMouseEnter: this.onInnerSliderEnter, onMouseLeave: this.onInnerSliderLeave },
+	      { className: className, onMouseEnter: this.onInnerSliderEnter, onMouseLeave: this.onInnerSliderLeave, ref: function ref(c) {
+	          return _this._slickSlider = c;
+	        } },
 	      _react2.default.createElement(
 	        'div',
 	        {
